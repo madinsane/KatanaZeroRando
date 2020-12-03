@@ -1,7 +1,9 @@
 # KatanaZeroRando
-This is a randomiser built for Katana Zero v1.0.5, it replaces all the enemies and throwables (configurable) with random other objects of the same type.
+This is a randomiser built for Katana Zero v1.0.5 by madinsane, it replaces all the enemies and throwables (configurable) with random other objects of the same type. It uses UndertaleModLib (https://github.com/krzys-h/UndertaleModTool) to read and edit the game data.
 
 This is an early version and is rather simple currently, it doesn't place enemies that have special events (such as dialogue) or enemies that are spawned after the start of the room.
+
+If you have any issues you can message me on discord: madinsane#8324
 
 ## Setup
 1. Extract the content of the KatanaZeroRando zip to a new folder
