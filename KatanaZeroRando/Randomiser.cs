@@ -110,7 +110,7 @@ namespace KatanaZeroRando
                         {
                             if (!bool.TryParse(setting.Split('=')[1], out randomThrowables))
                             {
-                                randomEnemies = true;
+                                randomThrowables = true;
                             }
                         }
                     }
