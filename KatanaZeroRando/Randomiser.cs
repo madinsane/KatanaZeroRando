@@ -318,7 +318,10 @@ namespace KatanaZeroRando
                 new Pair<string, ObjDesc>("room_haunted_alien2", new ObjDesc("obj_enemy", 864, 512)),
                 new Pair<string, ObjDesc>("room_haunted_alien2", new ObjDesc("obj_enemy", 1152, 512)),
                 new Pair<string, ObjDesc>("room_mansion_2", new ObjDesc("obj_enemy_meele", 860, 544)),
-                new Pair<string, ObjDesc>("room_mansion_2", new ObjDesc("obj_enemy_shotgun", 954, 544))
+                new Pair<string, ObjDesc>("room_mansion_2", new ObjDesc("obj_enemy_shotgun", 954, 544)),
+                new Pair<string, ObjDesc>("room_dragon_1", new ObjDesc("obj_enemy_shieldcop", 898, 640)),
+                new Pair<string, ObjDesc>("room_dragon_1", new ObjDesc("obj_enemy_cop", 800, 640)),
+                new Pair<string, ObjDesc>("room_dragon_1", new ObjDesc("obj_enemy_shotgun", 720, 640))
             };
         }
 
