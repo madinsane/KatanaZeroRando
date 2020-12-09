@@ -39,7 +39,7 @@ namespace KatanaZeroRando
         //Names of rooms with stairs (doors that warp), if a scientist uses one of these doors the game crashes so scientists are replaced by cops for those rooms
         public static string[] stairRooms =
         {
-            "room_haunted_silent1", "room_mansion_3", "room_chinatown_2", "room_chinatown_4", "room_chinatown_5", "room_chinatown_6",
+            "room_club_2", "room_haunted_silent1", "room_mansion_3", "room_chinatown_2", "room_chinatown_4", "room_chinatown_5", "room_chinatown_6",
             "room_chinatown_9", "room_dragon_3", "room_dragon_4", "room_factory2_2", "room_factory2_3", "room_factory2_4_2", "room_factory2_5",
             "room_bunker_7", "room_bunker_10", "room_bunker2_3"
         };
