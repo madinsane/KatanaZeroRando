@@ -84,7 +84,9 @@ namespace KatanaZeroRando
             return;
         }
 
-        //Initialise settings from settings.ini or create the file
+        /// <summary>
+        /// Initialise settings from settings.ini or create the file
+        /// </summary>
         static void InitSettings()
         {
             try
@@ -142,7 +144,11 @@ namespace KatanaZeroRando
             }
         }
 
-        //Browser for data.win location
+        /// <summary>
+        /// Browser for data.win location
+        /// </summary>
+        /// <param name="title">Title of browser window</param>
+        /// <returns>Name of chosen file or "" for invalid</returns>
         static string FileBrowser(string title)
         {
             OpenFileDialog fileDialog = new OpenFileDialog
@@ -163,7 +169,10 @@ namespace KatanaZeroRando
             }
         }
 
-        //Runs the randomiser
+        /// <summary>
+        /// Runs the randomiser
+        /// </summary>
+        /// <param name="outputPath">Output path for the repacked data</param>
         static void RunRandomiser(string outputPath)
         {
             Console.WriteLine("Enter new seed [leave blank for random] or Enter 'q' to exit");
@@ -194,7 +203,9 @@ namespace KatanaZeroRando
             RunRandomiser(outputPath);
         }
 
-        //Sets up the weights list
+        /// <summary>
+        /// Sets up the weights list
+        /// </summary>
         static void SetupWeights()
         {
             weights = new Dictionary<string, int>
@@ -211,8 +222,10 @@ namespace KatanaZeroRando
             };
             totalWeight = weights.Sum(x => x.Value);
         }
-        
-        //Populates enemyDefs with all valid enemy types in enemyNames
+
+        /// <summary>
+        /// Populates enemyDefs with all valid enemy types in enemyNames
+        /// </summary>
         static void ReadEnemyDefs()
         {
             Console.WriteLine("Reading enemy types");
@@ -243,7 +256,9 @@ namespace KatanaZeroRando
             return;
         }
 
-        //Reads the types of throwables that are valid and in the throwNames list
+        /// <summary>
+        /// Reads the types of throwables that are valid and in the throwNames list
+        /// </summary>
         static void ReadThrowableDefs()
         {
             Console.WriteLine("Reading throwable types");
@@ -261,7 +276,12 @@ namespace KatanaZeroRando
             return;
         }
 
-        //Removes the prefix from the object string for comparison with enemyNames
+        /// <summary>
+        /// Removes the prefix from the object string for comparison with enemyNames
+        /// </summary>
+        /// <param name="input">String to trim</param>
+        /// <param name="toRemove">Substring to remove</param>
+        /// <returns></returns>
         static string RemoveStrPrefix(string input, string toRemove)
         {
             string cleanStr = input;
@@ -272,7 +292,10 @@ namespace KatanaZeroRando
             return cleanStr;
         }
 
-        //Reads the data from data.win using UndertaleModLib
+        /// <summary>
+        /// Reads the data from data.win using UndertaleModLib
+        /// </summary>
+        /// <param name="dataWinPath">Path to data.win</param>
         static void ReadData(string dataWinPath) 
         {
             Console.WriteLine("Reading data.win");
@@ -289,7 +312,10 @@ namespace KatanaZeroRando
             fs.Close();
         }
 
-        //Writes the data to a new data.win using UndertaleModLib
+        /// <summary>
+        /// Writes the data to a new data.win using UndertaleModLib
+        /// </summary>
+        /// <param name="outputPath">Output path for new data.win</param>
         static void WriteData(string outputPath)
         {
             Console.WriteLine("Writing randomised data.win");
@@ -307,8 +333,12 @@ namespace KatanaZeroRando
             fs.Close();
         }
 
-        //Sets the enemies to be ignored with sufficient information to get the unique enemy (name, xpos, ypos)
-        //These enemies usually have some special dialogue event that crashes if it uses the wrong enemy type
+        /// <summary>
+        /// Sets the enemies to be ignored with sufficient information to get the unique enemy (name, xpos, ypos)
+        /// </summary>
+        /// <remarks>
+        /// These enemies usually have some special dialogue event that crashes if it uses the wrong enemy type
+        /// </remarks>
         static void SetBlockedEnemies()
         {
             blockedEnemies = new List<Pair<string, ObjDesc>>
@@ -325,8 +355,12 @@ namespace KatanaZeroRando
             };
         }
 
-        //Sets the throwables to be ignored with sufficient information to get the unique throwable (name, xpos, ypos)
-        //These throwables are usually required to complete the level
+        /// <summary>
+        /// Sets the throwables to be ignored with sufficient information to get the unique throwable (name, xpos, ypos)
+        /// </summary>
+        /// <remarks>
+        /// These throwables are usually required to complete the level
+        /// </remarks>
         static void SetBlockedThrowables()
         {
             blockedThrow = new List<Pair<string, ObjDesc>>
@@ -336,7 +370,9 @@ namespace KatanaZeroRando
             };
         }
 
-        //Replaces the enemies with a random version provided that enemy is safe to replace
+        /// <summary>
+        /// Replaces the enemies with a random version provided that enemy is safe to replace
+        /// </summary>
         static void ReplaceEnemies()
         {
             Console.WriteLine("Replacing enemies");
@@ -385,7 +421,9 @@ namespace KatanaZeroRando
             }
         }
 
-        //Replaces the throwables with a random version provided that throwable is safe to replace
+        /// <summary>
+        /// Replaces the throwables with a random version provided that throwable is safe to replace
+        /// </summary>
         static void ReplaceThrowables()
         {
             Console.WriteLine("Replacing throwables");
@@ -417,7 +455,10 @@ namespace KatanaZeroRando
             }
         }
 
-        //Chooses the enemy to replace with
+        /// <summary>
+        /// Chooses the enemy to replace with
+        /// </summary>
+        /// <returns>New enemy object</returns>
         static UndertaleGameObject ChooseEnemy()
         {
             int randVal = rand.Next(0, totalWeight);
@@ -440,21 +481,32 @@ namespace KatanaZeroRando
             }
         }
 
-        //Chooses a random enemy for a hardmode replacement, no weights are used
+        /// <summary>
+        /// Chooses a random enemy for a hardmode replacement, no weights are used
+        /// </summary>
+        /// <returns>New enemy object</returns>
         static UndertaleGameObject ChooseEnemyHard()
         {
             int randVal = rand.Next(0, hardmodeEnemyDefs.Count);
             return hardmodeEnemyDefs.ElementAt(randVal).Value;
         }
 
-        //Chooses a random throwables for a replacement, no weights are used
+        /// <summary>
+        /// Chooses a random throwables for a replacement, no weights are used
+        /// </summary>
+        /// <returns>New throwable object</returns>
         static UndertaleGameObject ChooseThrowable()
         {
             int randVal = rand.Next(0, throwDefs.Count);
             return throwDefs.ElementAt(randVal).Value;
         }
 
-        //Checks if the enemy is in the blocking list for that room
+        /// <summary>
+        /// Checks if the enemy is in the blocking list for that room
+        /// </summary>
+        /// <param name="blockingList">List of blocked spawns</param>
+        /// <param name="obj">Room object</param>
+        /// <returns>If enemy is blocked</returns>
         static bool IsBlockedObject(List<Pair<string, ObjDesc>> blockingList, UndertaleRoom.GameObject obj)
         {
            if (blockingList.Exists(
@@ -468,7 +520,11 @@ namespace KatanaZeroRando
             return false;
         }
 
-        //Checks if there is any blocked enemy in that room
+        /// <summary>
+        /// Checks if there is any blocked enemy in that room
+        /// </summary>
+        /// <param name="room">Name of room</param>
+        /// <returns>If any blocked enemies exist in room</returns>
         static bool HasBlockedEnemyInRoom(string room)
         {
             var newList = blockedEnemies.FindAll(s => s.First == room);
@@ -479,7 +535,11 @@ namespace KatanaZeroRando
             return false;
         }
 
-        //Checks if there is any blocked enemy in that room
+        /// <summary>
+        /// Checks if there is any blocked enemy in that room
+        /// </summary>
+        /// <param name="room">Name of room</param>
+        /// <returns>If any blocked throwable exists in the room</returns>
         static bool HasBlockedThrowableInRoom(string room)
         {
             var newList = blockedThrow.FindAll(s => s.First == room);
