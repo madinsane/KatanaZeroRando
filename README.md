@@ -5,7 +5,9 @@ This is an early version and is rather simple currently, it doesn't place enemie
 
 If you have any issues you can message me on discord: madinsane#8324
 
-Download the current version here: https://github.com/madinsane/KatanaZeroRando/releases/tag/v0.1
+Download the current version here: https://github.com/madinsane/KatanaZeroRando/releases/tag/v0.2
+
+![Randomised chinatown level](katanazerorandoscreen.png)
 
 ## Setup
 1. Extract the content of the KatanaZeroRando zip to a new folder
